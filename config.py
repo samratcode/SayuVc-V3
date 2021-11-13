@@ -59,7 +59,7 @@ class Config:
 
     #Optional Configuration
     SHUFFLE=is_enabled(os.environ.get("SHUFFLE", 'True'))
-    ADMIN_ONLY=is_enabled(os.environ.get("ADMIN_ONLY", str("False"))
+    REPLY_MESSAGE=os.environ.get("REPLY_MESSAGE", False)
     EDIT_TITLE=os.environ.get("EDIT_TITLE", True)
     #others
     
@@ -81,6 +81,7 @@ class Config:
 
     #Search filters for cplay
     FILTERS =  [filter.lower() for filter in (os.environ.get("FILTERS", "video document")).split(" ")]
+    ADMIN_ONLY=is_enabled(os.environ.get("ADMIN_ONLY", str("False"))
 
 
     #Dont touch these, these are not for configuring player
@@ -324,10 +325,10 @@ Command: **/seek**
 __You can pass number of seconds to be skipped. Example: /seek 10 to skip 10 sec. /seek -10 to rewind 10 sec.__
 
 9. Mute the player.
-Command: **/vcmute**
+Command: **/mute**
 
 10. Unmute the player.
-Command : **/vcunmute**
+Command : **/mute**
 
 11. Shows the playlist.
 Command: **/playlist** 
@@ -338,10 +339,10 @@ __Use /player to show with control buttons__
 __VCPlayer allows to control admins, that is you can add admins and remove them easily.
 It is recommended to use a MongoDb database for better experience, else all you admins will get reset after restart.__
 
-Command: **/vcpromote**
+Command: **/approve**
 __You can promote a admin with their username or user id or by replying to that users message.__
 
-Command: **/vcdemote**
+Command: **/Unapprove**
 __Remove an admin from admin list__
 
 Command: **/refresh**
@@ -362,7 +363,7 @@ __Example: To set up a__ `REPLY_MESSAGE` __use__ `/env REPLY_MESSAGE=Hey, Check 
 __You can delete a config var by ommiting a value for that, Example:__ `/env LOG_GROUP=` __this will delete the existing LOG_GROUP config.
 
 Command: **/config**
-__Same as using /env**
+__Same as using /set_var**
 
 Command: **/update**
 __Updates youe bot with latest changes__
