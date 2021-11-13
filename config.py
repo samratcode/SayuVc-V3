@@ -59,8 +59,8 @@ class Config:
 
     #Optional Configuration
     SHUFFLE=is_enabled(os.environ.get("SHUFFLE", 'True'))
-    ADMIN_ONLY=is_enabled(os.environ.get("ADMIN_ONLY", str("False")
-    REPLY_MESSAGE=os.environ.get("REPLY_MESSAGE", False)
+    ADMIN_ONLY=is_enabled(os.environ.get("ADMIN_ONLY", str("False"))
+    REPLY_MESSAGE=os.environ.get("REPLY_MESSAGE", False))
     EDIT_TITLE = os.environ.get("EDIT_TITLE", True)
     #others
     
