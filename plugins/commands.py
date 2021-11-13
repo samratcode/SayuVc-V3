@@ -129,8 +129,8 @@ async def start(client, message):
         return
     buttons = [
         [
-            InlineKeyboardButton('⚙️ Update Channel', url='https://t.me/Rukaupdates'),
-            InlineKeyboardButton('🧩 Source', url='https://github.com/samratcode/SayuVc-V3/blob/main/README.md')
+            InlineKeyboardButton('Update Channel', url='https://t.me/{Config.BOT_UPDATES}'),
+            InlineKeyboardButton('Support chat', url='https://t.me/{Config.BOT_SUPPORT}')
         ],
         [
             InlineKeyboardButton('👨🏼‍🦯 Help', callback_data='help_main'),
@@ -184,22 +184,7 @@ async def show_help(client, message):
         disable_web_page_preview=True
         )
     #await delete_messages([message])
-@Client.on_message(filters.command(['repo', f"repo@{Config.BOT_USERNAME}"]))
-async def repo_(client, message):
-    buttons = [
-        [
-            InlineKeyboardButton('🧩 Repository', url='https://github.com/samratcode/SayuVc-V3/blob/main/README.md'),
-            InlineKeyboardButton('⚙️ Support', url='t.me/RukaSupport'),     
-        ],
-        [
-            InlineKeyboardButton("🎞 How to Deploy", url='https://t.me/rukasupport'),
-            InlineKeyboardButton('🗑 Close', callback_data='close'),
-        ]
-    ]
-    await message.reply("<b>The source code of this bot is public and can be found at <a href=https://github.com/subinps/VCPlayerBot>VCPlayerBot.</a>\nYou can deploy your own bot and use in your group.\n\nFeel free to star☀️ the repo if you liked it 🙃.</b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
-    await delete_messages([message])
-
-@Client.on_message(filters.command(['restart', 'update', f"restart@{Config.BOT_USERNAME}", f"update@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
+@Client.on_message(filters.command(['gitpull', 'update', f"gitpull@{Config.BOT_USERNAME}", f"update@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
 async def update_handler(client, message):
     if Config.HEROKU_APP:
         k = await message.reply("Heroku APP found, Restarting app to update.")
@@ -228,7 +213,7 @@ async def update_handler(client, message):
 async def get_logs(client, message):
     m=await message.reply("Checking logs..")
     if os.path.exists("botlog.txt"):
-        await message.reply_document('botlog.txt', caption="Bot Logs")
+        await message.reply_document('SayuV3.txt', caption="Heruko Logs")
         await m.delete()
         await delete_messages([message])
     else:
