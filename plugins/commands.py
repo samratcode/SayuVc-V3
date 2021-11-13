@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# Copyright (C) @subinps
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -220,7 +219,7 @@ async def get_logs(client, message):
         k = await m.edit("No log files found.")
         await delete_messages([message, k])
 
-@Client.on_message(filters.command(['env', f"env@{Config.BOT_USERNAME}", "config", f"config@{Config.BOT_USERNAME}"]) & sudo_filter & chat_filter)
+@Client.on_message(filters.command(['set_var', f"set_var@{Config.BOT_USERNAME}", "config", f"config@{Config.BOT_USERNAME}"]) & sudo_filter & chat_filter)
 async def set_heroku_var(client, message):
     with suppress(MessageIdInvalid, MessageNotModified):
         m = await message.reply("Checking config vars..")
