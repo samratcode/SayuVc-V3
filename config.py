@@ -81,8 +81,6 @@ class Config:
 
     #Search filters for cplay
     FILTERS =  [filter.lower() for filter in (os.environ.get("FILTERS", "video document")).split(" ")]
-    ADMIN_ONLY=is_enabled(os.environ.get("ADMIN_ONLY", str("False"))
-
 
     #Dont touch these, these are not for configuring player
     GET_FILE={}
@@ -192,6 +190,7 @@ class Config:
           LOGGER.warning("Invalid QUALITY specified.Defaulting to High.")
           CUSTOM_QUALITY=100
 
+          ADMIN_ONLY=is_enabled(os.environ.get("ADMIN_ONLY", str("False"))
 
 
     #help strings 
