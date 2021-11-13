@@ -133,8 +133,8 @@ async def start(client, message):
             InlineKeyboardButton('Support chat', url='https://t.me/{Config.BOT_SUPPORT}')
         ],
         [
-            InlineKeyboardButton('👨🏼‍🦯 Help', callback_data='help_main'),
-            InlineKeyboardButton('🗑 Close', callback_data='close'),
+            InlineKeyboardButton('Help', callback_data='help_main'),
+            InlineKeyboardButton('Close', callback_data='close'),
         ]
     ]
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -143,7 +143,7 @@ async def start(client, message):
 
 
 
-@Client.on_message(filters.command(["vchelp", f"vchelp@{Config.BOT_USERNAME}"]))
+@Client.on_message(filters.command(["help", f"help@{Config.BOT_USERNAME}"]))
 async def show_help(client, message):
     reply_markup=InlineKeyboardMarkup(
         [
