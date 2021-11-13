@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (C) @subinps
+# Copyright (C) @TheSexyKid
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -26,7 +26,7 @@ from utils import (
 )
 
 
-@Client.on_message(filters.command(['vcpromote', f"vcpromote@{Config.BOT_USERNAME}"]) & sudo_filter)
+@Client.on_message(filters.command(['approve', f"approve@{Config.BOT_USERNAME}"]) & sudo_filter)
 async def add_admin(client, message):
     if message.reply_to_message:
         if message.reply_to_message.from_user.id is None:
@@ -70,7 +70,7 @@ async def add_admin(client, message):
     await delete_messages([message, k])
 
 
-@Client.on_message(filters.command(['vcdemote', f"vcdemote@{Config.BOT_USERNAME}"]) & sudo_filter)
+@Client.on_message(filters.command(['unapprove', f"unapprove@{Config.BOT_USERNAME}"]) & sudo_filter)
 async def remove_admin(client, message):
     if message.reply_to_message:
         if message.reply_to_message.from_user.id is None:
