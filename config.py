@@ -439,4 +439,4 @@ For more info on channel play , read help from player section.__
 18. `FPS` : __Fps of video to be played (Not recommended to change.)__
 
 """
-    ADMIN_ONLY=is_enabled(os.environ.get("ADMIN_ONLY", str("False"))
+    ADMIN_ONLY=is_enabled(os.environ.get("ADMIN_ONLY", "False"))
