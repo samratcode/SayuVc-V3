@@ -129,7 +129,7 @@ async def start(client, message):
         return
     buttons = [
         [
-            InlineKeyboardButton('Update Channel', url='https://t.me/{Config.BOT_UPDATES}'),
+            InlineKeyboardButton('Update Channel', url='https://t.me/{Config.BOT_CHANNEL}'),
             InlineKeyboardButton('Support chat', url='https://t.me/{Config.BOT_SUPPORT}')
         ],
         [
@@ -143,7 +143,7 @@ async def start(client, message):
 
 
 
-@Client.on_message(filters.command(["help", f"help@{Config.BOT_USERNAME}"]))
+@Client.on_message(filters.command(["vchelp", f"vchelp@{Config.BOT_USERNAME}"]))
 async def show_help(client, message):
     reply_markup=InlineKeyboardMarkup(
         [
