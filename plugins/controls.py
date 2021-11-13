@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (C) @subinps
+# COPYRIGHT @TheSexyKid
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -175,7 +175,7 @@ async def set_vol(_, m: Message):
     
 
 
-@Client.on_message(filters.command(['vcmute', f"vcmute@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
+@Client.on_message(filters.command(['mute', f"mute@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
 async def set_mute(_, m: Message):
     if not Config.CALL_STATUS:
         await m.reply_text(
@@ -191,13 +191,13 @@ async def set_mute(_, m: Message):
         return
     k=await mute()
     if k:
-        k = await m.reply_text(f" 🔇 Succesfully Muted ")
+        k = await m.reply_text(f" Succesfully Muted ")
         await delete_messages([m, k])
     else:
         k = await m.reply_text("Already muted.")
         await delete_messages([m, k])
     
-@Client.on_message(filters.command(['vcunmute', f"vcunmute@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
+@Client.on_message(filters.command(['unmute', f"unmute@{Config.BOT_USERNAME}"]) & admin_filter & chat_filter)
 async def set_unmute(_, m: Message):
     if not Config.CALL_STATUS:
         await m.reply_text(
@@ -213,7 +213,7 @@ async def set_unmute(_, m: Message):
         return
     k=await unmute()
     if k:
-        k = await m.reply_text(f"🔊 Succesfully Unmuted ")
+        k = await m.reply_text(f"Succesfully Unmuted ")
         await delete_messages([m, k])
         return
     else:
@@ -317,7 +317,7 @@ async def seek_playout(client, m: Message):
                 title=f"<b>Streaming Startup [stream]({Config.STREAM_URL})</b> ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ"
         if Config.msg.get('player'):
             await Config.msg['player'].delete()  
-        Config.msg['player'] = await k.edit(f"🎸{title}", reply_markup=await get_buttons(), disable_web_page_preview=True)
+        Config.msg['player'] = await k.edit(f"{title}", reply_markup=await get_buttons(), disable_web_page_preview=True)
         await delete_messages([m])
     else:
         await k.edit('No time specified')
